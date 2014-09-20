@@ -6,6 +6,9 @@ gem 'rails', '4.1.6'
 
 group :production do
 	gem "pg"
+  gem 'unicorn'
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 end
 # Use sqlite3 as the database for Active Record
 group :development do
@@ -33,9 +36,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'rails_12factor'
-
-gem 'heroku'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
