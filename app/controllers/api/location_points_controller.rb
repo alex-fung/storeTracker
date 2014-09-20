@@ -17,7 +17,7 @@ module Api
 		end
 
 		def create
-			respond_with :api, locationPoint = LocationPoint.create(params.require(:location_point).permit(:dist1, :dist2, :dist3, :timeSent, :storeID, :macAddr))
+			respond_with :api, locationPoint = LocationPoint.create(params.require(:location_point).permit(:dist1, :dist2, :dist3, :timeSent, :beac1, :beac2, :beac3, :macAddr))
 		end
 	end
 end
