@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  namespace :api, path: '/', constraints: { subdomain: 'api' } do
+  namespace :api do
     resources :location_points, only: [:index, :show, :create]
   end
   # The priority is based upon order of creation: first created -> highest priority.
