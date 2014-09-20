@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920233424) do
+ActiveRecord::Schema.define(version: 20140920235313) do
 
   create_table "location_points", force: true do |t|
     t.decimal  "dist1"
     t.decimal  "dist2"
     t.decimal  "dist3"
     t.datetime "timeSent"
-    t.integer  "storeID"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "macAddr"
+    t.string   "beac1"
+    t.string   "beac2"
+    t.string   "beac3"
   end
 
 end
