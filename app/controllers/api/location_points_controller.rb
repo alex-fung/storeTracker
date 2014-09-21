@@ -28,5 +28,6 @@ module Api
 		def deleteAll
 			LocationPoint.all.each { |point| point.destroy}
 			head :no_content
+		end
 	end
 end
