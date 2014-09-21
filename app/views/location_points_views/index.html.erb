@@ -4,15 +4,14 @@
 </head>
 <body>
 	<h1> Location Points </h1>
-	<form>
-		Mac Address: <input type="text" name="macAddr" id="macAddr">
-	</form>
+	Mac Address: <input id="macAddr" type="text"/>
 	<div class="points">
 	</div>
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			var update = function(string){
+				alert("'" + string + "'");
 				$.getJSON("api/location_points" + string, function(data) { 
 			    var items = [];
 				  $.each( data, function(index, value) {
@@ -28,13 +27,14 @@
 			}
 
 			$('#macAddr').on('input', function(){
-				$string = $(this).value;
-				if($string != ''){
-					update("?macAddr=" + $(this).value);
+				string = $(this).val();
+				alert("'" + string + "'");
+				if(string != ''){
+					update("?macAddr=" +  string);
 				} else{
 					update("")
 				}
-			})
+			});
 			
 			update("");
 		});
