@@ -24,5 +24,9 @@ module Api
 			LocationPoint.find(params[:id]).destroy
 			head :no_content
 		end
+
+		def deleteAll
+			LocationPoint.all.each { |point| point.destroy}
+			head :no_content
 	end
 end
