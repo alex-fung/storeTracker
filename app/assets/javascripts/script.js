@@ -12,6 +12,8 @@ $(document).ready(function(){
 	var intLabels = [];
 
 	$.getJSON("http://storetracker.herokuapp.com/api/location_points/1", function(data){
+		alert("1");
+		alert(data);
 		data1 = data;
 	});
 
@@ -62,5 +64,7 @@ $(document).ready(function(){
         }    
       ]
 	};
+	alert("2");
+	alert(data2);
 	var myLineChart = new Chart(ctx).Line(data, options);
 });
