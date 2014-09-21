@@ -26,15 +26,20 @@
 			}
 
 			$('#macAddr').on('input', function(){
-				string = $(this).val();
+				realUpdate();
+			});
+
+			var realUpdate = function(){
+				string = $(macAddr).val();
 				if(string != ''){
 					update("?macAddr=" +  string);
 				} else{
-					update("")
+					update("");
 				}
-			});
+				$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+			}
 			
-			update("");
+			setInterval(realUpdate, 1000);
 		});
 	</script>
 </body>
