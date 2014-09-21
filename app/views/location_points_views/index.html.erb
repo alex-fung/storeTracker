@@ -44,7 +44,7 @@
                       </a>
                   </li>
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a href="javascript:radarGraph();" >
                           <i class="fa fa-cogs"></i>
                           <span>Radar</span>
                       </a>
@@ -199,7 +199,7 @@
   	}
 
 
-  	var barGraph = function(){
+  	var radarGraph = function(){
   		$('.wrapper').html('');
   		$('.wrapper').html('<canvas id="myChart" style="width:100%; height:100%;"></canvas>');
   		$.getJSON("http://storetracker.herokuapp.com/api/location_points/1", function(data1){
