@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Location Points</title>
+</head>
+<body>
+	<h1> Location Points </h1>
+	<form>
+		Mac Address: <input type="text" name="macAddr" id="macAddr">
+	</form>
+	<div class="points">
+	</div>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var update = function(string){
+				$.getJSON("api/location_points" + string, function(data) { 
+			    var items = [];
+				  $.each( data, function(index, value) {
+				  	items.push("<ul>")
+				  	$.each(value, function(key, val) {
+					    items.push( "<li>" + key + ", " + val + "</li>" );
+					  });
+					  items.push("</ul>")
+				  });
+
+				  $('.points').html(items.join(""));
+				})
+			}
+
+			$('#macAddr').on('input', function(){
+				$string = $(this).value;
+				if($string != ''){
+					update("?macAddr=" + $(this).value);
+				} else{
+					update("")
+				}
+			})
+			
+			update("");
+		});
+	</script>
+</body>
+</html>
