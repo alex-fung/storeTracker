@@ -15,7 +15,7 @@ $(document).ready(function(){
 						intLabels[i] = i + 1;
 					}
 
-					var data = {
+					var chartData = {
 				    labels: intLabels,
 				    datasets: [
 				        {
@@ -51,7 +51,7 @@ $(document).ready(function(){
 				      ]
 					};
 
-					var myLineChart = new Chart(ctx).Line(data, options);
+					var myLineChart = new Chart(ctx).Line(chartData, options);
 
 				});
 		});
