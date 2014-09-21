@@ -21,6 +21,8 @@ module Api
 			end
 
 			array = LocationPoint.all.select{ |obj| ((obj.dist1.to_f > 0) && (obj.dist2.to_f > 0) && (obj.dist3.to_f > 0))}
+
+			array = array.sort_by {|obj| obj.timeSent}
 				
 			array1 = array.select{|obj| obj.beac1 == id}
 			array2 = array.select{|obj| obj.beac2 == id}
@@ -31,7 +33,7 @@ module Api
 			array3 = array3.map{|obj| obj.dist3}
 			array = array1 + array2 + array3
 
-			render json: array, status: 200
+			render json: array.reverse, status: 200
 		end
 
 		def create
