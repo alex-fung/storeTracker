@@ -90,12 +90,15 @@
 					ctx.canvas.width  = window.innerWidth - 240;
 				  ctx.canvas.height = window.innerHeight - 130;
 
+				  Chart.defaults.global.responsive = true;
+
 					var options = {
+
 					};
 
 					var intLabels = [];
 
-					for(var i = 0; i < data1.length; i++){
+					for(var i = -1; i < data1.length; i+=10){
 						intLabels[i] = i + 1;
 					}
 
