@@ -12,8 +12,26 @@ module Api
 		end
 
 		def show
-			locationPoint = LocationPoint.find(params[:id])
-			render json: locationPoint, status: 200
+			if params[:id] == 1
+				id = "2467"
+			elsif params[:id] == 2
+				id = "12284"
+			else
+				id = "54317"
+			end
+
+			array = LocationPoint.all.select{ |obj| ((obj.dist1.to_f > 0) && (obj.dist2.to_f > 0) && (obj.dist3.to_f > 0))}
+				
+			array1 = array.select{|obj| obj.beac1 == id}
+			array2 = array.select{|obj| obj.beac2 == id}
+			array3 = array.select{|obj| obj.beac3 == id}
+			                                                         
+			array1 = array1.map{|obj| obj.dist1}
+			array2 = array2.map{|obj| obj.dist2}
+			array3 = array3.map{|obj| obj.dist3}
+			array = array1 + array2 + array3
+
+			render json: array, status: 200
 		end
 
 		def create

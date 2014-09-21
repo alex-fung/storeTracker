@@ -1,46 +1,83 @@
-<html>
-<head>
-	<title>Location Points</title>
-</head>
-<body>
-	<h1> Location Points </h1>
-	Mac Address: <input id="macAddr" type="text"/>
-	<div class="points">
-	</div>
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			var update = function(string){
-				$.getJSON("api/location_points" + string, function(data) { 
-			    var items = [];
-				  $.each( data, function(index, value) {
-				  	items.push("<ul>")
-				  	$.each(value, function(key, val) {
-					    items.push( "<li>" + key + ", " + val + "</li>" );
-					  });
-					  items.push("</ul>")
-				  });
 
-				  $('.points').html(items.join(""));
-				})
-			}
+<section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href="index.html" class="logo"><b>STORETRACKER</b></a>
+            <!--logo end-->
+            <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="login.html">Logout</a></li>
+            	</ul>
+            </div>
+        </header>
+      <!--header end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+              
+              	  <p class="centered"><a href="profile.html"><img src="assets/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              	  <h5 class="centered">Toyota</h5>
+              	  	
+                  <li class="mt">
+                      <a class="active" href="javascript:;">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-cogs"></i>
+                          <span>Components</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class=" fa fa-bar-chart-o"></i>
+                          <span>Charts</span>
+                      </a>
+                  </li>
 
-			$('#macAddr').on('input', function(){
-				realUpdate();
-			});
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+					
+						<canvas id="myChart" style="width:100%; height:100%;"></canvas>         
+ 
+          </section>
+      </section>
 
-			var realUpdate = function(){
-				string = $(macAddr).val();
-				if(string != ''){
-					update("?macAddr=" +  string);
-				} else{
-					update("");
-				}
-				$("html, body").animate({ scrollTop: $(document).height() }, "slow");
-			}
-			
-			setInterval(realUpdate, 1000);
-		});
-	</script>
-</body>
-</html>
+      <!--main content end-->
+      <!--footer start-->
+      <footer class="site-footer">
+          <div class="text-center">
+              2014 - Toyota
+              <a href="#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section> 
+ 
