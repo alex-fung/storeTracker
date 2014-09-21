@@ -11,7 +11,6 @@
 	<script>
 		$(document).ready(function(){
 			var update = function(string){
-				alert("'" + string + "'");
 				$.getJSON("api/location_points" + string, function(data) { 
 			    var items = [];
 				  $.each( data, function(index, value) {
@@ -28,7 +27,6 @@
 
 			$('#macAddr').on('input', function(){
 				string = $(this).val();
-				alert("'" + string + "'");
 				if(string != ''){
 					update("?macAddr=" +  string);
 				} else{
