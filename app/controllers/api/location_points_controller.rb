@@ -33,7 +33,7 @@ module Api
 			array3 = array3.map{|obj| obj.dist3}
 			array = array1 + array2 + array3
 
-			render json: array.reverse, status: 200
+			render json: array, status: 200
 		end
 
 		def create
