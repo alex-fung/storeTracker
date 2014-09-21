@@ -82,9 +82,9 @@
   </section> 
 
   <script>
-  $(document).ready(function(){
-  	var myLineChart;
-  	var lineGraphFirst = function(){
+	var myLineChart;
+
+  var lineGraphFirst = function(){
   		$.getJSON("http://storetracker.herokuapp.com/api/location_points/1", function(data1){
 				$.getJSON("http://storetracker.herokuapp.com/api/location_points/2", function(data2){
 					$.getJSON("http://storetracker.herokuapp.com/api/location_points/3", function(data3){
@@ -256,8 +256,10 @@
 				});
 			});  		
   	}
+  </script>
 
-
+  <script>
+  $(document).ready(function(){
 		lineGraphFirst();
 	});
   </script>
