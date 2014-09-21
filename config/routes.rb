@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :location_points, only: [:index, :show, :create]
+    resources :location_points, only: [:index, :show, :create, :destroy]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

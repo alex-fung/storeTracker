@@ -19,5 +19,10 @@ module Api
 		def create
 			respond_with :api, locationPoint = LocationPoint.create(params.require(:location_point).permit(:dist1, :dist2, :dist3, :timeSent, :beac1, :beac2, :beac3, :macAddr))
 		end
+
+		def destroy
+			LocationPoint.find(params[:id]).destroy
+			head :no_content
+		end
 	end
 end
