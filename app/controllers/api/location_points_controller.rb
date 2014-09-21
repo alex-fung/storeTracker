@@ -12,9 +12,9 @@ module Api
 		end
 
 		def show
-			if params[:id] == 1
+			if params[:id].to_i == 1
 				id = "2467"
-			elsif params[:id] == 2
+			elsif params[:id].to_i == 2
 				id = "12284"
 			else
 				id = "54317"
