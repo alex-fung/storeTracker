@@ -1,19 +1,15 @@
 $(document).ready(function(){
-	var ctx = document.getElementById("myChart").getContext("2d");
-	ctx.canvas.width  = window.innerWidth - 240;
-  ctx.canvas.height = window.innerHeight - 130;
-
-	var options = {
-	};
-
 	
 	$.getJSON("http://storetracker.herokuapp.com/api/location_points/1", function(data1){
 		$.getJSON("http://storetracker.herokuapp.com/api/location_points/2", function(data2){
 				$.getJSON("http://storetracker.herokuapp.com/api/location_points/3", function(data3){
-					data3 = data;
-					var data1 = [];
-					var data2 = [];
-					var data3 = [];
+						var ctx = document.getElementById("myChart").getContext("2d");
+						ctx.canvas.width  = window.innerWidth - 240;
+					  ctx.canvas.height = window.innerHeight - 130;
+
+					var options = {
+					};
+
 					var intLabels = [];
 					for(var i = 0; i < data1.length; i++){
 						intLabels[i] = i + 1;
@@ -54,9 +50,10 @@ $(document).ready(function(){
 				        }    
 				      ]
 					};
+
+					var myLineChart = new Chart(ctx).Line(data, options);
+
 				});
 		});
 	});
-
-	var myLineChart = new Chart(ctx).Line(data, options);
 });
